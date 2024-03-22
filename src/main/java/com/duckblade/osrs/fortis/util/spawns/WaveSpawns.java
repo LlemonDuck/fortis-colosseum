@@ -77,7 +77,8 @@ public class WaveSpawns
 		// manticore every wave 4 and up, varying between 1 and 2 spawns
 		if (wave >= 4)
 		{
-			boolean single = wave == 4 || wave == 5 || wave == 7 || wave == 8;
+			// single spawn on wave 4-8, double thereafter
+			boolean single = wave <= 8;
 			builder.spawn(new WaveSpawn(single ? 1 : 2, Enemy.MANTICORE));
 		}
 
