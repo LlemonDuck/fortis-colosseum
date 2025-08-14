@@ -11,6 +11,7 @@ import com.duckblade.osrs.fortis.features.timetracking.SplitsFileWriter;
 import com.duckblade.osrs.fortis.features.timetracking.SplitsOverlay;
 import com.duckblade.osrs.fortis.features.timetracking.SplitsTracker;
 import com.duckblade.osrs.fortis.features.timetracking.livesplit.LiveSplitManager;
+import com.duckblade.osrs.fortis.features.loslinks.LoSLinksManager;
 import com.duckblade.osrs.fortis.features.waves.WavesOverlay;
 import com.duckblade.osrs.fortis.util.ColosseumStateTracker;
 import com.google.common.collect.ImmutableSet;
@@ -44,6 +45,7 @@ public class FortisColosseumModule extends AbstractModule
 		SplitsOverlay splitsOverlay,
 		SplitsTracker splitsTracker,
 		VolatilityReminder volatilityReminder,
+		LoSLinksManager loSLinksManager,
 		WavesOverlay wavesOverlay
 	)
 	{
@@ -59,6 +61,7 @@ public class FortisColosseumModule extends AbstractModule
 			splitsOverlay,
 			splitsTracker,
 			volatilityReminder,
+			loSLinksManager,
 			wavesOverlay
 		);
 	}

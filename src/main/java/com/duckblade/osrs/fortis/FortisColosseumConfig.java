@@ -279,4 +279,23 @@ public interface FortisColosseumConfig extends Config
 		return LootTotalMode.EARNED;
 	}
 
+	@ConfigSection(
+		name = "LoS Links Panel",
+		description = "Captures wave spawns, reinforcements, and current NPC locations and generates links to los.colosim.com in the side panel",
+		position = 500
+	)
+	String SECTION_LOS_LINKS = "losLinks";
+
+	@ConfigItem(
+		keyName = "losLinksEnabled",
+		name = "Panel Enabled",
+		description = "Captures wave spawns, reinforcements, and current NPC locations and generates links to los.colosim.com in the side panel",
+		position = 501,
+		section = SECTION_LOS_LINKS
+	)
+	default boolean losLinksEnabled()
+	{
+		return true;
+	}
+
 }

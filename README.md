@@ -47,6 +47,26 @@ The plugin can also add names to the options on the between-wave selector.
 </details>
 
 <details>
+<summary>LoS Links Panel</summary>
+
+Generates links to the line of sight tool [https://los.colosim.com/](https://los.colosim.com/)
+for initial wave spawns, reinforcements, and current player & NPC positions.
+
+Access the feature by clicking on the side panel icon:
+
+![LoS Links icon](docs/img/los_links_icon.png)
+
+For each initial wave and reinforcements spawn, the plugin adds a button that opens up the
+correct los.colosim.com URL with every NPC location loaded in. These buttons persist even
+after you leave the Colosseum, until you start wave 1 again.
+
+During a wave, you can also click "Current LoS" to get a LoS link with every NPC's current
+location. Perfect for asking pillar stack questions on Discord!
+
+![LoS Links panel](docs/img/los_links_panel.png)
+</details>
+
+<details>
 <summary>Splits</summary>
 
 Shows an overlay of splits timings with either per-wave time or cumulative wave-end time.
