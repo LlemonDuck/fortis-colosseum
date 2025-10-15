@@ -10,6 +10,7 @@ public class NpcSpawn
 	private final int npcIndex;
 	private final Point swTile; // in colosim coords
 	private final Enemy enemyType;
+	private final boolean reinforcement;
 	private final ManticoreOrbOrder orbOrder;
 	private final boolean manticoreCharged;
 
@@ -20,7 +21,7 @@ public class NpcSpawn
 			"%02d%02d%d",
 			swTile.getX(),
 			swTile.getY(),
-			enemyType.getColosimLosId()
+			enemyType.getColosimLosId(reinforcement)
 		));
 
 		if (enemyType == Enemy.MANTICORE)

@@ -317,6 +317,7 @@ public class LosLinks implements PluginLifecycleComponent
 			npc.getIndex(),
 			convertToLoSCoordinates(LocalPoint.fromWorld(npc.getWorldView(), npc.getWorldLocation())),
 			NPC_ID_TO_ENEMY_TYPE.get(npc.getId()),
+			reinforcementNpcs.contains(npc.getIndex()),
 			orbData,
 			orbData != null && orbData.getThird() != null
 		);
