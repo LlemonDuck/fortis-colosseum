@@ -36,7 +36,7 @@ public class SplitsTrackerTest
 		splitsTracker.onChatMessage(buildChatMessage("Wave 9 completed! Wave duration: 1:57.00"));
 		splitsTracker.onChatMessage(buildChatMessage("Wave 10 completed! Wave duration: 3:21.00"));
 		splitsTracker.onChatMessage(buildChatMessage("Wave 11 completed! Wave duration: 4:07.80"));
-		splitsTracker.onChatMessage(buildChatMessage("Colosseum duration: 29:42.60"));
+		splitsTracker.onChatMessage(buildChatMessage("Wave 12 completed! Wave duration: 29:42.60"));
 
 		List<Split> splits = splitsTracker.getSplits();
 		assertEquals(272, splits.get(11).getWaveDuration());
@@ -56,7 +56,7 @@ public class SplitsTrackerTest
 		splitsTracker.onChatMessage(buildChatMessage("Wave 9 completed! Wave duration: 1:57.00"));
 		splitsTracker.onChatMessage(buildChatMessage("Wave 10 completed! Wave duration: 3:21.00"));
 		splitsTracker.onChatMessage(buildChatMessage("Wave 11 completed! Wave duration: 4:07.80"));
-		splitsTracker.onChatMessage(buildChatMessage("Colosseum duration: 29:42.60"));
+		splitsTracker.onChatMessage(buildChatMessage("Wave 12 completed! Wave duration: 29:42.60"));
 
 		List<Split> splits = splitsTracker.getSplits();
 		assertEquals(53, splits.get(0).getCumulativeWaveDuration());
