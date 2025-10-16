@@ -29,8 +29,6 @@ public class SplitsTracker implements PluginLifecycleComponent
 
 	private static final Pattern WAVE_COMPLETE_PATTERN =
 		Pattern.compile("Wave (?<wave>\\d+) completed! Wave duration:.*?(?<duration>[0-9]+:[.0-9]+).*");
-	private static final Pattern COLOSSEUM_COMPLETE_PATTERN =
-		Pattern.compile("Colosseum duration:.*?(?<duration>[0-9]+:[.0-9]+).*");
 
 	private final EventBus eventBus;
 
@@ -78,14 +76,13 @@ public class SplitsTracker implements PluginLifecycleComponent
 			return;
 		}
 
-		Matcher m;
-		if (!(m = WAVE_COMPLETE_PATTERN.matcher(msg)).matches() &&
-			!(m = COLOSSEUM_COMPLETE_PATTERN.matcher(msg)).matches())
+		Matcher m = WAVE_COMPLETE_PATTERN.matcher(msg);
+		if (!m.matches())
 		{
 			return;
 		}
 
-		int wave = m.groupCount() == 2 ? Integer.parseInt(m.group("wave")) : 12;
+		int wave = Integer.parseInt(m.group("wave"));
 		int duration = parseTimeString(m.group("duration"));
 		int cumulative = getCumulativeDuration();
 		int cumulativeWave = getCumulativeWaveDuration();
