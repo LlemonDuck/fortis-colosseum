@@ -17,6 +17,7 @@ import net.runelite.api.Client;
 import net.runelite.api.NPC;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.events.ActorDeath;
+import net.runelite.api.gameval.NpcID;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.ui.overlay.Overlay;
@@ -87,6 +88,12 @@ public class VolatilityReminder extends Overlay implements PluginLifecycleCompon
 	{
 		if (e.getActor() instanceof NPC)
 		{
+			int npcID = ((NPC) e.getActor()).getId();
+			if (npcID == NpcID.COLOSSEUM_MODIFIER_BEES || npcID == NpcID.COLOSSEUM_HEALING_TOTEM)
+			{
+				return;
+			}
+
 			reminders.add(new DeathReminder(
 				e.getActor().getLocalLocation(),
 				e.getActor().getLogicalHeight() / 2,
