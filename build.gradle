@@ -39,7 +39,7 @@ dependencies {
 }
 
 group = 'com.duckblade.osrs'
-version = '1.7.4'
+version = '1.7.5'
 sourceCompatibility = JavaVersion.VERSION_11
 
 tasks.withType(JavaCompile).configureEach {
