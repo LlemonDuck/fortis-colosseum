@@ -256,10 +256,22 @@ public interface FortisColosseumConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "lootInterfaceHidePreviousWaves",
+		name = "Hide Previous Waves",
+		description = "Hide previous waves' earned loot behind an extra click.",
+		position = 402,
+		section = SECTION_LOOT_INTERFACE
+	)
+	default LootHiderMode lootInterfaceHidePreviousWaves()
+	{
+		return LootHiderMode.OFF;
+	}
+
+	@ConfigItem(
 		keyName = "lootInterfaceHideNextWave",
 		name = "Hide Next Wave",
 		description = "Hide potential next wave loot behind an extra click.",
-		position = 402,
+		position = 403,
 		section = SECTION_LOOT_INTERFACE
 	)
 	default LootHiderMode lootInterfaceHideNextWave()
@@ -271,7 +283,7 @@ public interface FortisColosseumConfig extends Config
 		keyName = "lootInterfaceShowTotal",
 		name = "Show Loot Total",
 		description = "",
-		position = 403,
+		position = 404,
 		section = SECTION_LOOT_INTERFACE
 	)
 	default LootTotalMode lootInterfaceShowTotal()
