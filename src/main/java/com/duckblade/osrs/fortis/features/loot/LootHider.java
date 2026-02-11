@@ -235,7 +235,7 @@ public class LootHider implements PluginLifecycleComponent
 	private boolean shouldHide(LootHiderMode mode)
 	{
 		return mode == LootHiderMode.ALWAYS ||
-			(mode == LootHiderMode.WAVE_12 && stateTracker.getCurrentState().getWaveNumber() != 12);
+			(mode == LootHiderMode.WAVE_12 && stateTracker.getCurrentState().getWaveNumber() == 12);
 	}
 
 	private void runGameTickQueuedActions()
