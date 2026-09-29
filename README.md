@@ -37,6 +37,9 @@ The plugin can also add names to the options on the between-wave selector.
 
 * **Left-Click Bank-All**:
   Swaps the two-click bank all to a single-click bank all in the loot chest interface.
+* **Hide Previous Waves**:
+  Hides the loot already earned from previous waves on the between-wave interface,
+  either on all waves or just for wave 12.
 * **Hide Next Wave**:
   Hides the potential next-wave loot on the between-wave interface,
   either on all waves or just for wave 12.
