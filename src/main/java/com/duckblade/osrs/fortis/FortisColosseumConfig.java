@@ -184,10 +184,22 @@ public interface FortisColosseumConfig extends Config
 	}
 
 	@ConfigItem(
+		keyName = "splitsOverlayShowTotal",
+		name = "Show Total Run Time",
+		description = "Show the total run time on the overlay panel.",
+		position = 303,
+		section = SECTION_SPLITS
+	)
+	default boolean splitsOverlayShowTotal()
+	{
+		return true;
+	}
+
+	@ConfigItem(
 		keyName = "splitsFileCondition",
 		name = "Save to File",
 		description = "Save splits to files in .runelite/fortis-colosseum/splits/",
-		position = 303,
+		position = 304,
 		section = SECTION_SPLITS
 	)
 	default SplitsFileWriter.WriteCondition splitsFileCondition()
@@ -202,7 +214,7 @@ public interface FortisColosseumConfig extends Config
 				"'Precise' is minutes, seconds, and milliseconds.<br>" +
 				"'Lax' is minutes and seconds.<br>" +
 				"'Ticks' is an unconverted server tick count.",
-		position = 304,
+		position = 305,
 		section = SECTION_SPLITS
 	)
 	default TimerMode splitsFileTimerMode()
@@ -215,7 +227,7 @@ public interface FortisColosseumConfig extends Config
 		keyName = KEY_LIVESPLIT_PORT,
 		name = "LiveSplit Port",
 		description = "Send splits events to LiveSplit. Set to 0 to disable.<br>Requires LiveSplit Server. See the plugin README for more details.",
-		position = 305,
+		position = 306,
 		section = SECTION_SPLITS
 	)
 	@Range(min = 0, max = 65535)
@@ -228,7 +240,7 @@ public interface FortisColosseumConfig extends Config
 		keyName = "splitsLivesplitAutoReset",
 		name = "LiveSplit Auto-Reset",
 		description = "Automatically restart the timer at Wave 1 when a new run is started.",
-		position = 306,
+		position = 307,
 		section = SECTION_SPLITS
 	)
 	default boolean splitsLivesplitAutoReset()
