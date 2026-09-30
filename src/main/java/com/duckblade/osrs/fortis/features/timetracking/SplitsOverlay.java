@@ -103,8 +103,11 @@ public class SplitsOverlay extends OverlayPanel implements PluginLifecycleCompon
 			}
 		}
 
-		String text = overlayMode.formatTotal(timerMode, splitsTracker.getWaveCumulativeDuration(), splitsTracker.getCumulativeDuration());
-		addLine("Total", text);
+		if (config.splitsOverlayShowTotal())
+		{
+			String text = overlayMode.formatTotal(timerMode, splitsTracker.getWaveCumulativeDuration(), splitsTracker.getCumulativeDuration());
+			addLine("Total", text);
+		}
 
 		long ms = System.currentTimeMillis() - start;
 		if (ms > 1)
