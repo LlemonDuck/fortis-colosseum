@@ -52,6 +52,9 @@ public class LootHider implements PluginLifecycleComponent
 	private LootHiderMode hidePrevious;
 	private LootHiderMode hideNext;
 
+	private Widget potentialTotal;
+	private int hiddenSides;
+
 	@Override
 	public boolean isEnabled(FortisColosseumConfig config, ColosseumState state)
 	{
@@ -83,13 +86,16 @@ public class LootHider implements PluginLifecycleComponent
 			return;
 		}
 
+		potentialTotal = null;
+		hiddenSides = 0;
+
 		if (shouldHide(hidePrevious))
 		{
 			hide(
 				client.getWidget(InterfaceID.ColosseumIntermission2.LEFT_LOOT),
 				client.getWidget(InterfaceID.ColosseumIntermission2.LEFT_LOOT_VALUE),
 				client.getWidget(InterfaceID.ColosseumIntermission2.LEFT_LOOT_BACK),
-				hideTotal()
+				hideTotal(InterfaceID.ColosseumIntermission2.LEFT)
 			);
 		}
 
@@ -102,6 +108,11 @@ public class LootHider implements PluginLifecycleComponent
 				null
 			);
 		}
+
+		if (hiddenSides > 0)
+		{
+			potentialTotal = hideTotal(InterfaceID.ColosseumIntermission2.RIGHT);
+		}
 	}
 
 	private void hide(Widget loot, Widget value, Widget back, Widget totalEarned)
@@ -112,6 +123,7 @@ public class LootHider implements PluginLifecycleComponent
 		}
 		loot.setHidden(true);
 		value.setHidden(true);
+		hiddenSides++;
 
 		int w = 78;
 		int h = 28;
@@ -166,19 +178,19 @@ public class LootHider implements PluginLifecycleComponent
 		});
 	}
 
-	private Widget hideTotal()
+	private Widget hideTotal(int containerId)
 	{
-		Widget container = client.getWidget(InterfaceID.ColosseumIntermission2.LEFT);
+		Widget container = client.getWidget(containerId);
 		if (container == null)
 		{
 			return null;
 		}
 
-		Widget totalEarned = container.getChild(0);
-		if (totalEarned != null)
+		Widget total = container.getChild(0);
+		if (total != null)
 		{
-			totalEarned.setHidden(true);
-			return totalEarned;
+			total.setHidden(true);
+			return total;
 		}
 
 		return null;
@@ -214,6 +226,12 @@ public class LootHider implements PluginLifecycleComponent
 		}
 		text.setHidden(true);
 		text.setHasListener(false);
+
+		hiddenSides--;
+		if (hiddenSides == 0 && potentialTotal != null)
+		{
+			potentialTotal.setHidden(false);
+		}
 	}
 
 	@Subscribe
